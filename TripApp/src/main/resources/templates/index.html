@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Trips</title>
+    <!-- The styles -->
+    <link id="bs-css" href="css/bootstrap-cerulean.min.css" rel="stylesheet">
+    <!-- jQuery -->
+    <script src="bower_components/jquery/jquery.min.js"></script>
+</head>
+<body>
+    <!-- topbar starts -->
+    <div class="navbar navbar-default" role="navigation">
+
+        <div class="navbar-inner">
+            <button type="button" class="navbar-toggle pull-left animated flip">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">
+                <span>Trips</span></a>
+
+            <div class="btn-group pull-right">
+                <a class="navbar-brand" href="/">
+                    <span>Profile</span></a>
+            </div>
+        </div>
+    </div>
+    <!-- topbar ends -->
+    <div class="ch-container">
+        <div class="row">
+            <noscript>
+                <div class="alert alert-block col-md-12">
+                    <h4 class="alert-heading">Warning!</h4>
+                    <p>You need to have <a href="http://en.wikipedia.org/wiki/JavaScript" target="_blank">JavaScript</a>
+                        enabled to use this site.</p>
+                </div>
+            </noscript>
+            <div id="tripsList" class="col-lg-12 col-sm-12">
+                <!-- content starts -->
+                <div class="row">
+                    <div class="box col-md-12">
+                        <div class="box-inner">
+                            <div class="box-header well" data-original-title="">
+                                <div class="box-content">
+                                    <div class="control-group">
+                                        <form role="form">
+                                            <div class="form-group">
+                                                <label>Select Trip</label>
+                                            </div>
+                                            <div>
+                                                <select class="box col-md-10">
+                                                    <option>Cehia</option>
+                                                    <option>Germania 2</option>
+                                                    <option>Spania</option>
+                                                    <option>Danemarca</option>
+                                                    <option>Irlanda</option>
+                                                </select>
+                                                <button class="btn btn-default btn-xs">Edit</button>
+                                                <button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#myModal">
+                                                    Add Trip
+                                                </button>
+                                                <!-- Modal -->
+                                                <div class="modal fade" id="myModal" role="dialog">
+                                                    <div class="modal-dialog modal-md">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                            </div>
+                                                            <div class="row">
+
+                                                                <div class="box col-md-12">
+                                                                    <div class="box-inner">
+                                                                        <div class="modal-body">
+                                                                            <div class="box-header well" data-original-title>
+                                                                                <h4 class="modal-title">Add new trip details</h4>
+                                                                            </div>
+                                                                            <div class="box-content">
+                                                                                <form role="form" action="">
+                                                                                    <div class="form-group">
+                                                                                        <label for="tripName">Trip Name</label>
+                                                                                        <input id="tripName" type="text">
+                                                                                    </div>
+                                                                                    <div class="form-group">
+                                                                                        <label for="dateFrom">Date From</label>
+                                                                                        <input id="dateFrom" type="text">
+                                                                                    </div>
+                                                                                    <div class="form-group">
+                                                                                        <label for="dateTo">Date To</label>
+                                                                                        <input id="dateTo" type="text">
+                                                                                    </div>
+                                                                                    <div class="form-group">
+                                                                                        <label for="impressions">Impressions</label>
+                                                                                        <textarea id="impressions"></textarea>
+                                                                                    </div>
+                                                                                    <div class="form-group">
+                                                                                        <label for="photo1">photo1</label>
+                                                                                        <input id="photo1" type="text">
+                                                                                        <input type="file">
+                                                                                    </div>
+                                                                                    <div class="form-group">
+                                                                                        <label for="titlePhoto1">Title Photo 1</label>
+                                                                                        <input id="titlePhoto1" type="text">
+                                                                                    </div>
+                                                                                    <div class="form-group">
+                                                                                        <label for="descPhoto1">Description Photo 1</label>
+                                                                                        <textarea id="descPhoto1"></textarea>
+                                                                                    </div>
+                                                                                    <div class="form-group">
+                                                                                        <label for="photo2">photo2</label>
+                                                                                        <input id="photo2" type="text">
+                                                                                        <input type="file">
+                                                                                    </div>
+                                                                                    <div class="form-group">
+                                                                                        <label for="titlePhoto2">Title Photo 2</label>
+                                                                                        <input id="titlePhoto2" type="text">
+                                                                                    </div>
+                                                                                    <div class="form-group">
+                                                                                        <label for="descPhoto2">Description Photo 2</label>
+                                                                                        <textarea id="descPhoto2"></textarea>
+                                                                                    </div>
+                                                                                    <div class="form-group">
+                                                                                        <label for="location">Location</label>
+                                                                                        <input id="location" type="text">
+                                                                                    </div>
+                                                                                </form>
+                                                                            </div>
+                                                                            <div class="modal-footer">
+                                                                                <button type="submit" class="btn btn-primary">
+                                                                                    Add Trip
+                                                                                </button>
+                                                                                <button type="button" class="btn btn-default" data-dismiss="modal">
+                                                                                    Close
+                                                                                </button>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <button class="btn btn-danger btn-xs">Delete Trip</button>
+                                            </div>
+                                            <br>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--/row-->
+                    <!-- content ends -->
+                </div>
+                <!--/#content.col-md-0-->
+            </div>
+            <!--/fluid-row-->
+            <hr>
+            <div id="content" class="col-lg-12 col-sm-12">
+                <!-- content starts -->
+                <div class="box col-md-4">
+                    <div class="box-inner homepage-box">
+                        <div class="box-header well">
+                            <h2>Title Here</h2>
+                            <img src="img/Cehia/1.jpg" alt="Cehia" class="box-content">
+                            <div class="box-content">
+                                <p>Description Here</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="box col-md-4">
+                    <div class="box-inner homepage-box">
+                        <div class="box-header well">
+                            <h2>Title Here</h2>
+                            <img src="img/Cehia/2.jpg" alt="Cehia" class="box-content">
+                            <div class="box-content">
+                                <p>Description Here</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="box col-md-4">
+                    <div class="box-inner homepage-box">
+                        <div class="box-header well">
+                            <div class="box-icon">
+                                <h2>Dates Here</h2>
+                            </div>
+                            <h2>Location</h2>
+                            <div class="box-icon">
+                                <p>Map Here</p>
+                                <iframe src="https://embed.waze.com/iframe?zoom=12&lat=45.6906304&lon=-120.810983"
+                                        width="300" height="400"></iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- content ends -->
+    </div>
+    <!--/#content.col-md-0-->
+    </div>
+    <!--/fluid-row-->
+    </div>
+    <!--/.fluid-container-->
+
+    <!-- external javascript -->
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- calender plugin -->
+    <script src='bower_components/moment/min/moment.min.js'></script>
+    <script src='bower_components/fullcalendar/dist/fullcalendar.min.js'></script>
+    <!-- data table plugin -->
+    <script src='js/jquery.dataTables.min.js'></script>
+    <!-- select or dropdown enhancer -->
+    <script src="bower_components/chosen/chosen.jquery.min.js"></script>
+    <!-- plugin for gallery image view -->
+    <script src="bower_components/colorbox/jquery.colorbox-min.js"></script>
+    <!-- library for making tables responsive -->
+    <script src="bower_components/responsive-tables/responsive-tables.js"></script>
+    <script src="js/charisma.js"></script>
+    </body>
+</html>

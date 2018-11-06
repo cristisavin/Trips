@@ -20,15 +20,13 @@ public class MyAppController {
     }
 
     @RequestMapping(value="/", method = RequestMethod.GET)
-    public String homepage (Model model) {
-        model.addAttribute("trippppp", new Trip());
-        Trip trrrrip = new Trip();
-        trrrrip.setTitle("Barcelona");
-        trrrrip.setDescription("lorem  ipsum");
-        trrrrip.setLocation("Barcelona");
-        trrrrip.setStartDate(LocalDate.of(2018, 12, 25));
-        trrrrip.setEndDate(LocalDate.of(2018,12,28));
-        tripService.createTrip(trrrrip);
-        return "";
+    public String index (Model model) {
+//        model.addAttribute("trip", new Trip());
+        return "index";
+    }
+
+    @RequestMapping(value="/index.html/", method = RequestMethod.GET)
+    public String error (Model model) {
+        return "index";
     }
 }

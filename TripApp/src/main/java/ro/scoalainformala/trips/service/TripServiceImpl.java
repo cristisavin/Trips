@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ro.scoalainformala.trips.entity.Spot;
 import ro.scoalainformala.trips.entity.Trip;
+import ro.scoalainformala.trips.repository.SpotRepository;
 import ro.scoalainformala.trips.repository.TripRepository;
 
 import java.util.List;
@@ -15,10 +16,10 @@ public class TripServiceImpl implements TripService {
     private TripRepository tripRepository;
 
     @Autowired
-    private TripRepository spotRepository;
+    private SpotRepository spotRepository;
 
     @Override
-    public Trip createTrip(Trip trip, Spot spot1, Spot spot2) {
+    public Trip createTripWithSpots(Trip trip, Spot spot1, Spot spot2) {
         spotRepository.save(spot1);
         spotRepository.save(spot2);
         return tripRepository.save(trip);
