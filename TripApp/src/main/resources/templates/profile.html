@@ -1,0 +1,118 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>My Profile</title>
+    <!-- The styles -->
+    <link id="bs-css" href="css/bootstrap-cerulean.min.css" rel="stylesheet">
+    <!-- jQuery -->
+    <script src="bower_components/jquery/jquery.min.js"></script>
+</head>
+<body>
+<!-- topbar starts -->
+<div class="navbar navbar-default" role="navigation">
+    <div class="navbar-inner">
+        <button type="button" class="navbar-toggle pull-left animated flip">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/">
+            <i class="glyphicon glyphicon-camera green"></i><span>Trips</span></a>
+        <div class="btn-group pull-right">
+            <a class="navbar-brand" th:href="@{/profile}">
+                <i class="glyphicon glyphicon-user icon-white"></i><span>Profile</span></a>
+        </div>
+    </div>
+</div>
+<!-- topbar ends -->
+
+<div class="ch-container">
+    <div class="row">
+        <noscript>
+            <div class="alert alert-block col-md-12">
+                <h4 class="alert-heading">Warning!</h4>
+                <p>You need to have
+                    <a href="http://en.wikipedia.org/wiki/JavaScript" target="_blank">JavaScript</a>
+                    enabled to use this site.
+                </p>
+            </div>
+        </noscript>
+    </div>
+</div>
+<div>
+    <ul class="breadcrumb">
+        <li>
+            <a th:href="@{/}">Home</a>
+        </li>
+    </ul>
+</div>
+<div class="row">
+    <div class="box col-md-12 tour">
+        <div class="box-inner">
+            <div class="box-header well" data-original-title="">
+                <div class="box-icon">
+                    <h2 class="col-md-4"><i class="glyphicon glyphicon-globe"></i> About me and my trips:</h2>
+                    <a href="#" class="btn btn-minimize btn-round btn-default"><i
+                            class="glyphicon glyphicon-chevron-up"></i>click me</a>
+                </div>
+            </div>
+            <div class="box-content">
+                <div class="col-md-6">
+                    <h3>On top of the mountain. Can you imagine the feeling?</h3>
+                    <img src="img\\profile\\me.jpg" alt="" width="300px">
+                    <p>Anyway, like wise people said: no matter the destination but the journey!</p>
+                </div>
+                <div class="col-md-6">
+                    <h3>This is the my camera!</h3>
+                    <img src="img\\profile\\photoCamera.jpg" alt="" width="300px">
+                    <p>I don't know how to use it, so I took a photo with my mobile :)</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--/span-->
+</div><!--/row-->
+<!-- content ends -->
+<hr>
+<footer class="row">
+    <p class="col-md-6 col-sm-6 col-xs-12 powered-by">&copy; Powered by: Cristian Savin</p>
+</footer>
+
+<!-- external javascript -->
+<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<!-- library for cookie management -->
+<script src="js/jquery.cookie.js"></script>
+<!-- calender plugin -->
+<script src='bower_components/moment/min/moment.min.js'></script>
+<script src='bower_components/fullcalendar/dist/fullcalendar.min.js'></script>
+<!-- data table plugin -->
+<script src='js/jquery.dataTables.min.js'></script>
+<!-- select or dropdown enhancer -->
+<script src="bower_components/chosen/chosen.jquery.min.js"></script>
+<!-- plugin for gallery image view -->
+<script src="bower_components/colorbox/jquery.colorbox-min.js"></script>
+<!-- notification plugin -->
+<script src="js/jquery.noty.js"></script>
+<!-- library for making tables responsive -->
+<script src="bower_components/responsive-tables/responsive-tables.js"></script>
+<!-- tour plugin -->
+<script src="bower_components/bootstrap-tour/build/js/bootstrap-tour.min.js"></script>
+<!-- star rating plugin -->
+<script src="js/jquery.raty.min.js"></script>
+<!-- for iOS style toggle switch -->
+<script src="js/jquery.iphone.toggle.js"></script>
+<!-- autogrowing textarea plugin -->
+<script src="js/jquery.autogrow-textarea.js"></script>
+<!-- multiple file upload plugin -->
+<script src="js/jquery.uploadify-3.1.min.js"></script>
+<!-- history.js for cross-browser state change on ajax -->
+<script src="js/jquery.history.js"></script>
+<!-- application script for Charisma demo -->
+<script src="js/charisma.js"></script>
+</body>
+</html>

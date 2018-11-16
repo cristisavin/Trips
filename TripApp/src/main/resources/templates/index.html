@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
@@ -12,218 +12,285 @@
     <script src="bower_components/jquery/jquery.min.js"></script>
 </head>
 <body>
-    <!-- topbar starts -->
-    <div class="navbar navbar-default" role="navigation">
-
-        <div class="navbar-inner">
-            <button type="button" class="navbar-toggle pull-left animated flip">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="/">
-                <span>Trips</span></a>
-
-            <div class="btn-group pull-right">
-                <a class="navbar-brand" href="/">
-                    <span>Profile</span></a>
-            </div>
+<!-- topbar starts -->
+<div class="navbar navbar-default" role="navigation">
+    <div class="navbar-inner">
+        <button type="button" class="navbar-toggle pull-left animated flip">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/">
+            <i class="glyphicon glyphicon-camera green"></i><span>Trips</span></a>
+        <div class="btn-group pull-right">
+            <a class="navbar-brand" th:href="@{/profile}">
+                <i class="glyphicon glyphicon-user icon-white"></i><span>Profile</span></a>
         </div>
     </div>
-    <!-- topbar ends -->
-    <div class="ch-container">
-        <div class="row">
-            <noscript>
-                <div class="alert alert-block col-md-12">
-                    <h4 class="alert-heading">Warning!</h4>
-                    <p>You need to have <a href="http://en.wikipedia.org/wiki/JavaScript" target="_blank">JavaScript</a>
-                        enabled to use this site.</p>
-                </div>
-            </noscript>
-            <div id="tripsList" class="col-lg-12 col-sm-12">
-                <!-- content starts -->
-                <div class="row">
-                    <div class="box col-md-12">
-                        <div class="box-inner">
-                            <div class="box-header well" data-original-title="">
-                                <div class="box-content">
-                                    <div class="control-group">
-                                        <form role="form">
-                                            <div class="form-group">
-                                                <label>Select Trip</label>
-                                            </div>
-                                            <div>
-                                                <select class="box col-md-10">
-                                                    <option>Cehia</option>
-                                                    <option>Germania 2</option>
-                                                    <option>Spania</option>
-                                                    <option>Danemarca</option>
-                                                    <option>Irlanda</option>
-                                                </select>
-                                                <button class="btn btn-default btn-xs">Edit</button>
-                                                <button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#myModal">
-                                                    Add Trip
-                                                </button>
-                                                <!-- Modal -->
-                                                <div class="modal fade" id="myModal" role="dialog">
-                                                    <div class="modal-dialog modal-md">
-                                                        <div class="modal-content">
-                                                            <div class="modal-header">
-                                                                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                                            </div>
-                                                            <div class="row">
+</div>
+<!-- topbar ends -->
 
-                                                                <div class="box col-md-12">
-                                                                    <div class="box-inner">
-                                                                        <div class="modal-body">
-                                                                            <div class="box-header well" data-original-title>
-                                                                                <h4 class="modal-title">Add new trip details</h4>
-                                                                            </div>
-                                                                            <div class="box-content">
-                                                                                <form role="form" action="">
-                                                                                    <div class="form-group">
-                                                                                        <label for="tripName">Trip Name</label>
-                                                                                        <input id="tripName" type="text">
-                                                                                    </div>
-                                                                                    <div class="form-group">
-                                                                                        <label for="dateFrom">Date From</label>
-                                                                                        <input id="dateFrom" type="text">
-                                                                                    </div>
-                                                                                    <div class="form-group">
-                                                                                        <label for="dateTo">Date To</label>
-                                                                                        <input id="dateTo" type="text">
-                                                                                    </div>
-                                                                                    <div class="form-group">
-                                                                                        <label for="impressions">Impressions</label>
-                                                                                        <textarea id="impressions"></textarea>
-                                                                                    </div>
-                                                                                    <div class="form-group">
-                                                                                        <label for="photo1">photo1</label>
-                                                                                        <input id="photo1" type="text">
-                                                                                        <input type="file">
-                                                                                    </div>
-                                                                                    <div class="form-group">
-                                                                                        <label for="titlePhoto1">Title Photo 1</label>
-                                                                                        <input id="titlePhoto1" type="text">
-                                                                                    </div>
-                                                                                    <div class="form-group">
-                                                                                        <label for="descPhoto1">Description Photo 1</label>
-                                                                                        <textarea id="descPhoto1"></textarea>
-                                                                                    </div>
-                                                                                    <div class="form-group">
-                                                                                        <label for="photo2">photo2</label>
-                                                                                        <input id="photo2" type="text">
-                                                                                        <input type="file">
-                                                                                    </div>
-                                                                                    <div class="form-group">
-                                                                                        <label for="titlePhoto2">Title Photo 2</label>
-                                                                                        <input id="titlePhoto2" type="text">
-                                                                                    </div>
-                                                                                    <div class="form-group">
-                                                                                        <label for="descPhoto2">Description Photo 2</label>
-                                                                                        <textarea id="descPhoto2"></textarea>
-                                                                                    </div>
-                                                                                    <div class="form-group">
-                                                                                        <label for="location">Location</label>
-                                                                                        <input id="location" type="text">
-                                                                                    </div>
-                                                                                </form>
-                                                                            </div>
-                                                                            <div class="modal-footer">
-                                                                                <button type="submit" class="btn btn-primary">
-                                                                                    Add Trip
-                                                                                </button>
-                                                                                <button type="button" class="btn btn-default" data-dismiss="modal">
-                                                                                    Close
-                                                                                </button>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <button class="btn btn-danger btn-xs">Delete Trip</button>
+<div class="ch-container">
+    <div class="row">
+        <noscript>
+            <div class="alert alert-block col-md-12">
+                <h4 class="alert-heading">Warning!</h4>
+                <p>You need to have <a href="http://en.wikipedia.org/wiki/JavaScript" target="_blank">JavaScript</a>
+                    enabled to use this site.
+                </p>
+            </div>
+        </noscript>
+
+        <div id="tripsList" class="col-lg-12 col-sm-12">
+            <!-- content starts -->
+            <div class="row">
+                <div class="box col-md-12">
+                    <div class="box-inner">
+                        <div class="box-header well" data-original-title="">
+                            <div class="box-content">
+                                <div class="control-group col-md-6">
+                                    <form role="form" th:action="@{/}" th:object="${trip}" method="get">
+                                        <div class="form-group" th:object="${trips}">
+                                            <label for="id" text="Trip:">Select Trip:</label><br>
+                                            <select class="box col-md-6" id="id" name="id">
+                                                <option th:each="trip : ${trips}" th:value="${trip.id}"
+                                                        th:text="${trip.title}">
+                                                </option>
+                                            </select>
+                                            <br>
+                                            <div>
+                                                <br>
+                                                <button class="btn btn-success btn-md col-md-6" type="submit">
+                                                    View Trip
+                                                </button>
                                             </div>
                                             <br>
-                                        </form>
-                                    </div>
+                                        </div>
+                                        <br>
+                                    </form>
+                                </div>
+                                <div class="control-group col-md-6">
+                                    <br>
+                                    <br>
+                                    <table>
+                                        <tr>
+                                            <td class="col-md-4">
+                                                <form th:action="@{/editTrip}" th:object="${trips[0].id}"
+                                                      th:name="idEdit"
+                                                      method="get">
+                                                    <button type="submit" th:value="${trips[0].id}" name="idEdit"
+                                                            id="idEdit"
+                                                            class="btn btn-primary btn-md">Edit Trip
+                                                    </button>
+                                                </form>
+                                            </td>
+                                            <td class="col-md-4">
+                                                <form th:action="@{/addTrip}" th:object="${trip}" method="get">
+                                                    <button type="button" class="btn btn-info btn-md"
+                                                            data-toggle="modal"
+                                                            data-target="#myModal">Add Trip
+                                                    </button>
+                                                </form>
+                                            </td>
+                                            <td class="col-md-4">
+                                                <form th:action="@{/deleteTrip}" th:object="${trips[0].id}"
+                                                      th:name="deleteId"
+                                                      method="get">
+                                                    <button type="submit" class="btn btn-danger btn-md"
+                                                            th:value="${trips[0].id}"
+                                                            name="deleteId" id="deleteId">Delete Trip
+                                                    </button>
+                                                </form>
+                                            </td>
+                                        </tr>
+                                    </table>
                                 </div>
                             </div>
                         </div>
+                        <div class="col-md-12">
+                            <label>Trip Description:</label><br>
+                            <p class="col-md-12" type="text" th:text="${trips[0].description}"></p>
+                        </div>
                     </div>
-                    <!--/row-->
-                    <!-- content ends -->
                 </div>
-                <!--/#content.col-md-0-->
+                <!--/row-->
+                <!-- content ends -->
             </div>
-            <!--/fluid-row-->
-            <hr>
-            <div id="content" class="col-lg-12 col-sm-12">
-                <!-- content starts -->
-                <div class="box col-md-4">
-                    <div class="box-inner homepage-box">
-                        <div class="box-header well">
-                            <h2>Title Here</h2>
-                            <img src="img/Cehia/1.jpg" alt="Cehia" class="box-content">
-                            <div class="box-content">
-                                <p>Description Here</p>
-                            </div>
+            <!--/#content.col-md-0-->
+        </div>
+        <!--/fluid-row-->
+        <hr>
+        <div id="content" class="col-lg-12 col-sm-12">
+            <!-- content starts -->
+            <div class="box col-md-4">
+                <div class="box-inner homepage-box">
+                    <div class="box-header well">
+                        <h2 th:text="${trips[0].spot1Title}">Title Here</h2>
+                        <img th:src="@{'/img/' + ${trips[0].spot1FilePath}}" alt="image" class="box-content col-md-12">
+                        <div class="box-content">
+                            <p th:text="${trips[0].spot1Description}">Description Here</p>
                         </div>
                     </div>
                 </div>
-                <div class="box col-md-4">
-                    <div class="box-inner homepage-box">
-                        <div class="box-header well">
-                            <h2>Title Here</h2>
-                            <img src="img/Cehia/2.jpg" alt="Cehia" class="box-content">
-                            <div class="box-content">
-                                <p>Description Here</p>
-                            </div>
+            </div>
+            <div class="box col-md-4">
+                <div class="box-inner homepage-box">
+                    <div class="box-header well">
+                        <h2 th:text="${trips[0].spot2Title}">Title Here</h2>
+                        <img th:src="@{'/img/' + ${trips[0].spot2FilePath}}" alt="image" class="box-content col-md-12">
+                        <div class="box-content">
+                            <p th:text="${trips[0].spot2Description}">Description Here</p>
                         </div>
                     </div>
                 </div>
-                <div class="box col-md-4">
-                    <div class="box-inner homepage-box">
-                        <div class="box-header well">
+            </div>
+            <div class="box col-md-4">
+                <div class="box-inner homepage-box col-md-12">
+                    <div class="box-header well col-md-12">
+                        <div class="box-icon col-md-12">
+                            <h4 th:text="${trips[0].title}">Location</h4>
                             <div class="box-icon">
-                                <h2>Dates Here</h2>
+                                <img th:src="@{'/img/' + ${trips[0].location}}" alt="image"
+                                     class="box-content col-md-12">
                             </div>
-                            <h2>Location</h2>
-                            <div class="box-icon">
-                                <p>Map Here</p>
-                                <iframe src="https://embed.waze.com/iframe?zoom=12&lat=45.6906304&lon=-120.810983"
-                                        width="300" height="400"></iframe>
-                            </div>
+                            <h4 class="col-md-5">Start Date: </h4>
+                            <h4 class="col-md-5" th:text="${trips[0].startDate}"></h4>
+                            <h4 class="col-md-5">End Date: </h4>
+                            <h4 class="col-md-5" th:text="${trips[0].endDate}"></h4>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- content ends -->
-    </div>
-    <!--/#content.col-md-0-->
-    </div>
-    <!--/fluid-row-->
-    </div>
-    <!--/.fluid-container-->
+</div>
+<!-- content ends -->
+</div>
+<!--/#content.col-md-0-->
+</div>
+<!--/fluid-row-->
+</div>
+<!--/.fluid-container-->
 
-    <!-- external javascript -->
-    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-    <!-- calender plugin -->
-    <script src='bower_components/moment/min/moment.min.js'></script>
-    <script src='bower_components/fullcalendar/dist/fullcalendar.min.js'></script>
-    <!-- data table plugin -->
-    <script src='js/jquery.dataTables.min.js'></script>
-    <!-- select or dropdown enhancer -->
-    <script src="bower_components/chosen/chosen.jquery.min.js"></script>
-    <!-- plugin for gallery image view -->
-    <script src="bower_components/colorbox/jquery.colorbox-min.js"></script>
-    <!-- library for making tables responsive -->
-    <script src="bower_components/responsive-tables/responsive-tables.js"></script>
-    <script src="js/charisma.js"></script>
-    </body>
+<!-- external javascript -->
+<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<!-- library for cookie management -->
+<script src="js/jquery.cookie.js"></script>
+<!-- calender plugin -->
+<script src='bower_components/moment/min/moment.min.js'></script>
+<script src='bower_components/fullcalendar/dist/fullcalendar.min.js'></script>
+<!-- data table plugin -->
+<script src='js/jquery.dataTables.min.js'></script>
+<!-- select or dropdown enhancer -->
+<script src="bower_components/chosen/chosen.jquery.min.js"></script>
+<!-- plugin for gallery image view -->
+<script src="bower_components/colorbox/jquery.colorbox-min.js"></script>
+<!-- notification plugin -->
+<script src="js/jquery.noty.js"></script>
+<!-- library for making tables responsive -->
+<script src="bower_components/responsive-tables/responsive-tables.js"></script>
+<!-- tour plugin -->
+<script src="bower_components/bootstrap-tour/build/js/bootstrap-tour.min.js"></script>
+<!-- star rating plugin -->
+<script src="js/jquery.raty.min.js"></script>
+<!-- for iOS style toggle switch -->
+<script src="js/jquery.iphone.toggle.js"></script>
+<!-- autogrowing textarea plugin -->
+<script src="js/jquery.autogrow-textarea.js"></script>
+<!-- multiple file upload plugin -->
+<script src="js/jquery.uploadify-3.1.min.js"></script>
+<!-- history.js for cross-browser state change on ajax -->
+<script src="js/jquery.history.js"></script>
+<!-- application script for Charisma demo -->
+<script src="js/charisma.js"></script>
+
+<!-- Modal (Add trip) -->
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog modal-md">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    &times;
+                </button>
+            </div>
+            <div class="row">
+                <div class="box col-md-12">
+                    <div class="box-inner col-md-12">
+                        <div class="modal-body">
+                            <div class="box-header well col-md-12" data-original-title>
+                                <h4 class="modal-title">Add new trip details</h4>
+                            </div>
+                            <form class="col-md-12" role="form" th:action="@{/addTrip}" th:object="${trip}"
+                                  method="post">
+                                <div class="box-content col-md-12">
+                                    <div class="form-group col-md-12">
+                                        <label class="col-md-3" for="tripName">Trip Name</label>
+                                        <input th:field="*{title}" id="tripName" type="text" class="col-md-8" required>
+                                    </div>
+                                    <div class="form-group col-md-12">
+                                        <label class="col-md-3">Date From</label>
+                                        <input th:field="*{startDate}" id="dateFrom" type="date" class="col-md-8">
+                                    </div>
+                                    <div class="form-group col-md-12">
+                                        <label for="dateTo" class="col-md-3">Date To</label>
+                                        <input th:field="*{endDate}" id="dateTo" type="date" class="col-md-8">
+                                    </div>
+                                    <div class="form-group col-md-12">
+                                        <label for="impressions" class="col-md-3">Impressions</label>
+                                        <textarea th:field="*{description}" id="impressions" class="autogrow col-md-8">
+                                        </textarea>
+                                    </div>
+                                    <div class="form-group col-md-12">
+                                        <label for="photo1" class="col-md-3">photo1</label>
+                                        <input th:field="*{spot1FilePath}" id="photo1" type="file" class="col-md-8">
+                                    </div>
+                                    <div class="form-group col-md-12">
+                                        <label for="titlePhoto1" class="col-md-3">Title Photo 1</label>
+                                        <input id="titlePhoto1" type="text" th:field="*{spot1Title}" class="col-md-8">
+                                    </div>
+                                    <div class="form-group col-md-12">
+                                        <label for="descPhoto1" class="col-md-3">Description Photo 1</label>
+                                        <textarea th:field="*{spot1Description}" id="descPhoto1"
+                                                  class="autogrow col-md-8">
+                                        </textarea>
+                                    </div>
+                                    <div class="form-group col-md-12">
+                                        <label for="photo2" class="col-md-3">photo2</label>
+                                        <input th:field="*{spot2FilePath}" id="photo2" type="file" class="col-md-8">
+                                    </div>
+                                    <div class="form-group col-md-12">
+                                        <label for="titlePhoto2" class="col-md-3">Title Photo 2</label>
+                                        <input th:field="*{spot2Title}" id="titlePhoto2" type="text" class="col-md-8">
+                                    </div>
+                                    <div class="form-group col-md-12">
+                                        <label for="descPhoto2" class="col-md-3">Description Photo 2</label>
+                                        <textarea th:field="*{spot2Description}" id="descPhoto2"
+                                                  class="autogrow col-md-8">
+                                        </textarea>
+                                    </div>
+                                    <div class="form-group col-md-12">
+                                        <label for="location" class="col-md-3">Location</label>
+                                        <input th:field="*{location}" id="location" type="file" class="col-md-8">
+                                    </div>
+                                </div>
+                                <div class="modal-footer col-md-12">
+                                    <div>
+                                        <button type="submit" class="btn btn-primary col-md-3">
+                                            Add Trip
+                                        </button>
+                                    </div>
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--Modal (Add Trip) Ends-->
+
+</body>
 </html>

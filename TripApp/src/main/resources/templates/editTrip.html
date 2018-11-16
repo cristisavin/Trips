@@ -1,0 +1,149 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Edit Trip</title>
+    <!-- The styles -->
+    <link id="bs-css" href="css/bootstrap-cerulean.min.css" rel="stylesheet">
+    <!-- jQuery -->
+    <script src="bower_components/jquery/jquery.min.js"></script>
+</head>
+<body>
+<!-- topbar starts -->
+<div class="navbar navbar-default" role="navigation">
+    <div class="navbar-inner">
+        <button type="button" class="navbar-toggle pull-left animated flip">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/">
+            <i class="glyphicon glyphicon-camera green"></i><span>Trips</span></a>
+        <div class="btn-group pull-right">
+            <a class="navbar-brand" th:href="@{/profile}">
+                <i class="glyphicon glyphicon-user icon-white"></i><span>Profile</span></a>
+        </div>
+    </div>
+</div>
+<!-- topbar ends -->
+
+<div class="ch-container">
+    <div class="row">
+        <noscript>
+            <div class="alert alert-block col-md-12">
+                <h4 class="alert-heading">Warning!</h4>
+                <p>You need to have
+                    <a href="http://en.wikipedia.org/wiki/JavaScript" target="_blank">JavaScript</a>
+                    enabled to use this site.
+                </p>
+            </div>
+        </noscript>
+
+        <form class="col-md-12" role="form" th:action="@{/editTrip}" th:object="${trip}" method="post">
+            <div class="box-content col-md-12">
+                <div class="form-group col-md-12">
+                    <label class="col-md-3">Trip Name</label>
+                    <input th:value="*{title}" th:field="*{title}" type="text" class="col-md-8" required>
+                </div>
+                <div class="form-group col-md-12">
+                    <label class="col-md-3">Date From</label>
+                    <input th:value="*{startDate}" th:field="*{startDate}" type="date" class="col-md-8">
+                </div>
+                <div class="form-group col-md-12">
+                    <label class="col-md-3">Date To</label>
+                    <input th:value="*{endDate}" th:field="*{endDate}" type="date" class="col-md-8">
+                </div>
+                <div class="form-group col-md-12">
+                    <label class="col-md-3">Impressions</label>
+                    <textarea th:text="*{description}" th:field="*{description}" class="autogrow col-md-8">
+                        </textarea>
+                </div>
+                <div class="form-group col-md-12">
+                    <label class="col-md-3">photo1</label>
+                    <input th:value="*{spot1FilePath}" type="text" class="col-md-4">
+                    <input th:field="*{spot1FilePath}" type="file" class="col-md-6">
+                </div>
+                <div class="form-group col-md-12">
+                    <label class="col-md-3">Title Photo 1</label>
+                    <input type="text" th:value="*{spot1Title}" th:field="*{spot1Title}" class="col-md-8">
+                </div>
+                <div class="form-group col-md-12">
+                    <label class="col-md-3">Description Photo 1</label>
+                    <textarea th:text="*{spot1Description}" th:field="*{spot1Description}" class="autogrow col-md-8">
+                    </textarea>
+                </div>
+                <div class="form-group col-md-12">
+                    <label class="col-md-3">photo2</label>
+                    <input th:value="*{spot2FilePath}" type="text" class="col-md-4">
+                    <input th:field="*{spot2FilePath}" type="file" class="col-md-6">
+                </div>
+                <div class="form-group col-md-12">
+                    <label class="col-md-3">Title Photo 2</label>
+                    <input th:value="*{spot2Title}" th:field="*{spot2Title}" type="text" class="col-md-8">
+                </div>
+                <div class="form-group col-md-12">
+                    <label class="col-md-3">Description Photo 2</label>
+                    <textarea th:text="*{spot2Description}" th:field="*{spot2Description}" class="autogrow col-md-8">
+                    </textarea>
+                </div>
+                <div class="form-group col-md-12">
+                    <label class="col-md-3">Location</label>
+                    <input th:value="*{location}" type="text" class="col-md-8">
+                    <input th:field="*{location}" id="location" type="file" class="col-md-8">
+                </div>
+            </div>
+            <div class="modal-footer col-md-12">
+                <div>
+                    <button type="submit" id="tripId" th:value="${tripId}" name="tripId"
+                            class="btn btn-primary col-md-3 pull-left">
+                        Update Trip
+                    </button>
+                </div>
+                <div>
+                    <a th:href="@{/}">
+                        <button type="button" class="btn btn-warning col-md-3 pull-right">Cancel</button>
+                    </a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<!-- external javascript -->
+<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<!-- library for cookie management -->
+<script src="js/jquery.cookie.js"></script>
+<!-- calender plugin -->
+<script src='bower_components/moment/min/moment.min.js'></script>
+<script src='bower_components/fullcalendar/dist/fullcalendar.min.js'></script>
+<!-- data table plugin -->
+<script src='js/jquery.dataTables.min.js'></script>
+<!-- select or dropdown enhancer -->
+<script src="bower_components/chosen/chosen.jquery.min.js"></script>
+<!-- plugin for gallery image view -->
+<script src="bower_components/colorbox/jquery.colorbox-min.js"></script>
+<!-- notification plugin -->
+<script src="js/jquery.noty.js"></script>
+<!-- library for making tables responsive -->
+<script src="bower_components/responsive-tables/responsive-tables.js"></script>
+<!-- tour plugin -->
+<script src="bower_components/bootstrap-tour/build/js/bootstrap-tour.min.js"></script>
+<!-- star rating plugin -->
+<script src="js/jquery.raty.min.js"></script>
+<!-- for iOS style toggle switch -->
+<script src="js/jquery.iphone.toggle.js"></script>
+<!-- autogrowing textarea plugin -->
+<script src="js/jquery.autogrow-textarea.js"></script>
+<!-- multiple file upload plugin -->
+<script src="js/jquery.uploadify-3.1.min.js"></script>
+<!-- history.js for cross-browser state change on ajax -->
+<script src="js/jquery.history.js"></script>
+<!-- application script for Charisma demo -->
+<script src="js/charisma.js"></script>
+</body>
+</html>
